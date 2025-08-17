@@ -1,0 +1,313 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /* ================
+     Custom Font Setup
+     ================ */
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url('/fonts/inter.woff2') format('woff2')
+         /* Add integrity hash: integrity="sha384-..." */;
+  }
+
+  @font-face {
+    font-family: 'Cairo';
+    font-style: normal;
+    font-weight: 400 700;
+    font-display: swap;
+    src: url('/fonts/cairo.woff2') format('woff2')
+         /* Add integrity hash: integrity="sha384-..." */;
+  }
+
+  /* ================
+     Direction Control 
+     ================ */
+  :root {
+    --direction: ltr;
+    --text-align-start: left;
+    --text-align-end: right;
+    --focus-ring: theme(colors.ourArabGreen);
+    scroll-padding-block-start: 80px;
+  }
+
+  [dir="rtl"] {
+    --direction: rtl;
+    --text-align-start: right;
+    --text-align-end: left;
+    scrollbar-gutter: stable both-edges;
+  }
+
+  /* ================
+     Core Document Styles 
+     ================ */
+  html {
+    scroll-behavior: smooth;
+    font-display: swap;
+  }
+
+  html:focus-within {
+    scroll-behavior: smooth;
+  }
+
+  html:lang(ar) {
+    font-family: 'Cairo', sans-serif;
+    font-display: swap;
+  }
+
+  html:lang(en) {
+    font-family: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  }
+
+  body {
+    @apply bg-gray-50 text-gray-900 antialiased;
+    @apply dark:bg-gray-900 dark:text-gray-100;
+    font-variation-settings: 'slnt' 0;
+    direction: var(--direction);
+    min-height: 100dvh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    contain: layout paint style;
+  }
+
+  /* ================
+     Image Optimization 
+     ================ */
+  img {
+    image-rendering: crisp-edges;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: attr(width) / attr(height);
+    loading: lazy;
+    decoding: async;
+  }
+
+  /* ================
+     Typography 
+     ================ */
+  h1, h2 {
+    text-align: var(--text-align-start);
+    scroll-margin-block-start: 80px;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 5vw + 1rem, 3.5rem);
+    @apply font-bold mb-4 tracking-tight;
+  }
+
+  h2 {
+    @apply text-3xl font-semibold mb-3 tracking-tight;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* ================
+     Interactive Elements 
+     ================ */
+  a {
+    @apply text-blue-700 hover:text-blue-900 decoration-2 font-medium;
+    @apply dark:text-blue-300 dark:hover:text-blue-200;
+    @apply transition-colors duration-200;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  button,
+  [role="button"] {
+    @apply font-medium;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--focus-ring)];
+    @apply focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900;
+    min-height: 44px;
+    min-width: 44px;
+    cursor: pointer;
+    user-select: none;
+    text-align: start;
+    touch-action: manipulation;
+  }
+
+  /* ================
+     Form Elements 
+     ================ */
+  input,
+  textarea,
+  select {
+    @apply border border-gray-300 rounded-lg px-4 py-2;
+    @apply focus:outline-none focus:ring-2 focus:ring-[var(--focus-ring)];
+    @apply dark:bg-gray-800 dark:border-gray-600 dark:text-gray-100;
+    @apply transition-colors duration-150;
+    text-align: var(--text-align-start);
+  }
+
+  input:user-invalid,
+  textarea:user-invalid,
+  select:user-invalid {
+    @apply border-red-500 ring-2 ring-red-200 dark:border-red-400 dark:ring-red-900/20;
+  }
+
+  input:user-valid:not(:placeholder-shown),
+  textarea:user-valid:not(:placeholder-shown),
+  select:user-valid:not(:placeholder-shown) {
+    @apply border-green-500 dark:border-green-400;
+  }
+
+  input:disabled,
+  button:disabled {
+    @apply opacity-50 cursor-not-allowed;
+  }
+
+  /* ================
+     Scrollbars 
+     ================ */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(100, 116, 139, 0.5);
+    border-radius: 9999px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+
+  .dark {
+    scrollbar-color: rgba(203,213,225,0.3) rgba(31,41,55,0.5);
+  }
+
+  .dark::-webkit-scrollbar-thumb {
+    background-color: rgba(203, 213, 225, 0.3);
+  }
+
+  .dark::-webkit-scrollbar-track {
+    background: rgba(31, 41, 55, 0.5);
+  }
+
+  /* ================
+     Selection Styles 
+     ================ */
+  ::selection {
+    @apply bg-blue-200 text-blue-900 dark:bg-blue-900/50 dark:text-blue-100;
+  }
+}
+
+@layer utilities {
+  /* ================
+     Layout Utilities 
+     ================ */
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Logical spacing */
+  .ms-auto { margin-inline-start: auto; }
+  .me-auto { margin-inline-end: auto; }
+  .ps-4 { padding-inline-start: 1rem; }
+  .pe-4 { padding-inline-end: 1rem; }
+
+  @supports (container-type: inline-size) {
+    .cq-auto {
+      container-type: inline-size;
+    }
+  }
+
+  /* Aspect Ratios */
+  .aspect-video { aspect-ratio: 16 / 9; }
+  .aspect-square { aspect-ratio: 1 / 1; }
+
+  /* Button loading indicator */
+  .button-loading {
+    @apply relative text-transparent;
+  }
+
+  .button-loading::after {
+    content: '';
+    @apply absolute inset-0 m-auto w-5 h-5 border-2 border-current border-t-transparent rounded-full animate-spin;
+  }
+
+  /* ================
+     Accessibility 
+     ================ */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      transition: none !important;
+      animation-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  .sr-only {
+    @apply absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0;
+    clip: rect(0, 0, 0, 0);
+  }
+
+  /* ================
+     Print Styles
+     ================ */
+  @media print {
+    @page {
+      size: auto;
+      margin: 20mm;
+    }
+
+    html {
+      scroll-padding-block-start: 0;
+    }
+
+    body {
+      @apply bg-white text-gray-900 !important;
+      font-size: 12pt;
+      contain: none;
+    }
+
+    a {
+      text-decoration: underline !important;
+      color: inherit !important;
+    }
+
+    a[href^="http"]::after {
+      content: " (" attr(href) ")";
+      font-size: 0.8em;
+      font-weight: normal;
+    }
+
+    table { break-inside: avoid; }
+    img { max-width: 50% !important; }
+    pre { white-space: pre-wrap !important; }
+
+    .no-print {
+      display: none !important;
+    }
+  }
+
+  /* ================
+     Custom Animations 
+     ================ */
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 0.3s ease-out;
+    will-change: opacity;
+  }
+
+  /* View transitions */
+  .view-transition {
+    view-transition-name: var(--transition-name);
+  }
+
+  /* Scroll timeline (experimental) */
+  @scroll-timeline page-scroll {
+    source: auto;
+    orientation: vertical;
+  }
+}

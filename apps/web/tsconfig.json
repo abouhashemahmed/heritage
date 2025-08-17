@@ -1,0 +1,80 @@
+{
+  "compilerOptions": {
+    // 🚀 Modern JavaScript Support
+    "target": "ES2022",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    
+    // ⚙️ Core TypeScript Settings
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "incremental": true,
+    "skipLibCheck": true,  // 💡 Keep this enabled for Next.js
+    
+    // 🔍 Enhanced Type Safety
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true,
+    "alwaysStrict": true,
+    "noPropertyAccessFromIndexSignature": true,
+    
+    // ⚛️ React/Next.js Specific
+    "jsx": "preserve",
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    
+    // 📁 Path Aliases
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"]
+    },
+    
+    // 🧪 Type Resolution
+    "types": [
+      "node",
+      "jest",
+      "next",          // 💡 Add Next.js types explicitly
+      "next/types"     // 💡 For App Router support
+    ],
+    "allowJs": true,
+    
+    // 🔄 Compatibility Fixes
+    "preserveSymlinks": true,  // 💡 Helps with monorepo setups
+    "typeRoots": [
+      "./node_modules/@types",
+      "./types"
+    ]
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "**/*.spec.ts",
+    "**/*.spec.tsx",
+    "types/**/*.d.ts"  // 💡 Add custom type definitions
+  ],
+  "exclude": [
+    "node_modules",
+    ".next"  // 💡 Exclude build artifacts
+  ]
+}

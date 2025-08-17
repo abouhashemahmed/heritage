@@ -1,0 +1,341 @@
+{
+  "metadata": {
+    "environment": "development",
+    "timestamp": "2025-05-27T13:58:25.554Z",
+    "duration": 6.25
+  },
+  "results": {
+    "totalProducts": 50,
+    "totalReviews": 100,
+    "averageRating": 3.89
+  },
+  "users": [
+    {
+      "id": "8042b450-81ad-41f8-bcb2-b3160672efde",
+      "email": "buyer.BeaulahGoldner3-O1uE@ourarabheritage.com",
+      "role": "BUYER"
+    },
+    {
+      "id": "e9524c1c-5416-41f5-b271-159cad43c566",
+      "email": "buyer.Willy_Towne68-C_8T@ourarabheritage.com",
+      "role": "BUYER"
+    },
+    {
+      "id": "f3bcdfcd-7b01-44cb-96d4-21c23c96f227",
+      "email": "buyer.Era59-4Mr0@ourarabheritage.com",
+      "role": "BUYER"
+    },
+    {
+      "id": "5a47569c-796a-4a1e-bcc0-48732d5eab4a",
+      "email": "buyer.Austen28-A4Mr@ourarabheritage.com",
+      "role": "BUYER"
+    },
+    {
+      "id": "6de761aa-0d00-4e3a-8303-009883f6eea0",
+      "email": "buyer.Leanne_Barrows1-dOIp@ourarabheritage.com",
+      "role": "BUYER"
+    },
+    {
+      "id": "e13f8890-3bf7-4b64-ab55-e420745e6991",
+      "email": "buyer.Blanche_Hintz37-czKm@ourarabheritage.com",
+      "role": "BUYER"
+    },
+    {
+      "id": "9ccea981-c8d2-4ccf-be3a-b13d0f0b913b",
+      "email": "buyer.Giuseppe66-vs62@ourarabheritage.com",
+      "role": "BUYER"
+    },
+    {
+      "id": "68549a28-4a17-4fe1-81e3-660ed2e0e396",
+      "email": "buyer.Jazmin_Satterfi-4e4x@ourarabheritage.com",
+      "role": "BUYER"
+    },
+    {
+      "id": "5e37ba09-f945-4648-99e5-768e27dfb272",
+      "email": "seller.Leanne98-WFyK@ourarabheritage.com",
+      "role": "SELLER"
+    },
+    {
+      "id": "e4af84ef-337a-40cb-9279-5245e99ea3e1",
+      "email": "buyer.Adeline_Lind-2c7N@ourarabheritage.com",
+      "role": "BUYER"
+    },
+    {
+      "id": "408c3558-c18f-446a-bd68-d03d380fbeb7",
+      "email": "seller.Reagan_Bode53-wF04@ourarabheritage.com",
+      "role": "SELLER"
+    },
+    {
+      "id": "88930d38-e7ec-42bc-bdb5-9628f791c1c1",
+      "email": "admin.MadgeHermiston8-esP7@ourarabheritage.com",
+      "role": "ADMIN"
+    },
+    {
+      "id": "d924d1d3-23fa-4790-b958-f3cec1263d0a",
+      "email": "buyer.JanickMills-U-tB@ourarabheritage.com",
+      "role": "BUYER"
+    },
+    {
+      "id": "772d1199-6518-4ef1-b2fe-12b661bc7193",
+      "email": "buyer.Keon_Keeling9-ePtl@ourarabheritage.com",
+      "role": "BUYER"
+    },
+    {
+      "id": "1404b4fe-0123-4be4-bab8-f1d790ddec49",
+      "email": "seller.Carley37-QLHt@ourarabheritage.com",
+      "role": "SELLER"
+    }
+  ],
+  "products": [
+    {
+      "id": "631837b0-5bd9-4294-84be-740c7e1ed7d5",
+      "title": "Frozen Computer",
+      "price": "47.93887031523188"
+    },
+    {
+      "id": "9b1a8131-f000-48be-a4de-2096998c073d",
+      "title": "Sleek Salad",
+      "price": "35.99330851050736"
+    },
+    {
+      "id": "48c74ecc-d9a3-4cf6-a1fc-391ed1c5b628",
+      "title": "Fresh Chicken",
+      "price": "135.4973643058266"
+    },
+    {
+      "id": "f2f9ac81-6171-4b2c-be22-ca5373c19343",
+      "title": "Handmade Car",
+      "price": "156.4131576997277"
+    },
+    {
+      "id": "c42afc62-5a63-4bd2-ba45-47c3ab13418d",
+      "title": "Licensed Computer",
+      "price": "221.2559468573723"
+    },
+    {
+      "id": "e746e7bd-4d45-450b-aaca-5330cc94b069",
+      "title": "Bespoke Cheese",
+      "price": "92.04475925053886"
+    },
+    {
+      "id": "30686c6e-49f6-4af8-865c-383604a24d2a",
+      "title": "Generic Bike",
+      "price": "209.9921889073917"
+    },
+    {
+      "id": "4d24c472-e89b-4f2f-919e-b15ef47d130f",
+      "title": "Sleek Computer",
+      "price": "69.0487352457362"
+    },
+    {
+      "id": "8173b973-e7d8-4f06-8b69-7cab91ccc647",
+      "title": "Handcrafted Computer",
+      "price": "195.1454167447001"
+    },
+    {
+      "id": "63883383-6521-4ffb-af03-1aa5efbcf6cb",
+      "title": "Oriental Towels",
+      "price": "168.4936529117654"
+    },
+    {
+      "id": "a69515d6-d0b6-49c5-ab98-a11f403291d7",
+      "title": "Small Bike",
+      "price": "46.40193550558509"
+    },
+    {
+      "id": "1a594e18-8266-4237-8ddc-619de3012513",
+      "title": "Tasty Towels",
+      "price": "63.76348486836795"
+    },
+    {
+      "id": "9816db61-40e0-4865-9d2a-240570f3d680",
+      "title": "Handmade Car",
+      "price": "238.3900727621339"
+    },
+    {
+      "id": "2c7d0181-de56-4681-953d-900511789f43",
+      "title": "Rustic Car",
+      "price": "237.2134267040156"
+    },
+    {
+      "id": "eb9480a8-d70d-4aa1-bcdb-684a9f5b28d9",
+      "title": "Sleek Chips",
+      "price": "129.554874455549"
+    },
+    {
+      "id": "a4bd15f5-f4a5-4f52-94bc-0681ee2077c7",
+      "title": "Unbranded Keyboard",
+      "price": "242.3207458898325"
+    },
+    {
+      "id": "cccbba57-33c5-4ca9-8d5b-92aaad936e3f",
+      "title": "Frozen Bike",
+      "price": "44.65336262599254"
+    },
+    {
+      "id": "4107774b-8b53-4440-8b4d-6cd85de34c43",
+      "title": "Modern Mouse",
+      "price": "192.2331289405886"
+    },
+    {
+      "id": "4f1a1c06-3dbf-4821-bc67-12ac6f8a6cab",
+      "title": "Fantastic Soap",
+      "price": "209.7443732562524"
+    },
+    {
+      "id": "9d9817cc-22d4-4665-bf3d-d4cc913fb10d",
+      "title": "Unbranded Chicken",
+      "price": "51.86691972295885"
+    },
+    {
+      "id": "beecea9d-91a6-4c0c-b72f-d7d0f15fec4e",
+      "title": "Luxurious Computer",
+      "price": "134.2702861683981"
+    },
+    {
+      "id": "6eb6d73e-61b3-4aea-b853-54870b8d4c5a",
+      "title": "Electronic Gloves",
+      "price": "31.93310885298744"
+    },
+    {
+      "id": "f79ab997-5878-45b7-8134-204527fdc8b8",
+      "title": "Luxurious Tuna",
+      "price": "220.3869487790778"
+    },
+    {
+      "id": "e48f93d5-0e3d-4955-8089-1934e119e6c9",
+      "title": "Awesome Pants",
+      "price": "235.5240386811073"
+    },
+    {
+      "id": "bc40800d-5974-48f5-be34-5de53a563184",
+      "title": "Electronic Soap",
+      "price": "50.01079088395107"
+    },
+    {
+      "id": "4324227f-cb4e-4706-88d4-72db6ed2f521",
+      "title": "Soft Hat",
+      "price": "248.9087696688792"
+    },
+    {
+      "id": "0097bd15-1126-427a-b460-ce6ea9384162",
+      "title": "Ergonomic Bacon",
+      "price": "129.1923373366625"
+    },
+    {
+      "id": "de027240-d77c-4db0-af36-f1533b894749",
+      "title": "Tasty Table",
+      "price": "104.5184858732701"
+    },
+    {
+      "id": "11e71d39-b2b6-478a-83e8-1a90eb2df851",
+      "title": "Fresh Table",
+      "price": "153.0440748846235"
+    },
+    {
+      "id": "6371ae04-dca0-4d06-8011-3fef4376a19f",
+      "title": "Handmade Salad",
+      "price": "170.0907677918128"
+    },
+    {
+      "id": "49f9932c-557b-47fa-b6f6-544b19c2fa54",
+      "title": "Electronic Hat",
+      "price": "216.1276465824778"
+    },
+    {
+      "id": "a40b2668-ea5d-4b43-9340-19f352c9df80",
+      "title": "Licensed Bike",
+      "price": "135.2466849541457"
+    },
+    {
+      "id": "e835fa29-46c4-43d1-ba04-a506205d83ff",
+      "title": "Recycled Ball",
+      "price": "219.5139538448831"
+    },
+    {
+      "id": "b8cbd1c7-125d-41f1-8555-e3f95458d28c",
+      "title": "Tasty Sausages",
+      "price": "215.1920219658395"
+    },
+    {
+      "id": "4e5673d5-8b7c-450a-9ac1-7d7f02d16a36",
+      "title": "Electronic Pants",
+      "price": "198.4895027035619"
+    },
+    {
+      "id": "c6c0482d-327d-475b-9390-053bdb50d63f",
+      "title": "Fresh Shirt",
+      "price": "231.2020716860585"
+    },
+    {
+      "id": "e3365eb1-1915-4b2a-b77a-394e41a784e6",
+      "title": "Awesome Bike",
+      "price": "123.8638208814543"
+    },
+    {
+      "id": "cea022fd-86aa-4ab4-801e-30780688873a",
+      "title": "Incredible Keyboard",
+      "price": "239.2801685010287"
+    },
+    {
+      "id": "03fd9241-d9ac-4a6c-9d38-967a0066544b",
+      "title": "Handmade Tuna",
+      "price": "210.2854745385735"
+    },
+    {
+      "id": "1fa3d6fe-a26a-41f9-90ab-7ff37bae3c4e",
+      "title": "Refined Table",
+      "price": "155.9219002999112"
+    },
+    {
+      "id": "bc0d7c61-1159-491d-91e2-ba46db814ea1",
+      "title": "Electronic Pants",
+      "price": "90.64521865738982"
+    },
+    {
+      "id": "c5fc6fe5-bf98-47ee-b67f-436e6529b9a8",
+      "title": "Generic Shirt",
+      "price": "238.7253142968414"
+    },
+    {
+      "id": "708bd68d-fae8-40ed-af36-b7f717b111c2",
+      "title": "Rustic Bike",
+      "price": "246.5543965974572"
+    },
+    {
+      "id": "e5017c22-4217-4ad4-835c-ea718d043387",
+      "title": "Fantastic Table",
+      "price": "74.88656429342937"
+    },
+    {
+      "id": "521684b2-66b3-4387-b2db-ce517c0949e8",
+      "title": "Fantastic Chips",
+      "price": "121.3342055389293"
+    },
+    {
+      "id": "c474cdb6-0361-4618-9dd2-851c89815471",
+      "title": "Rustic Pants",
+      "price": "105.5966505638935"
+    },
+    {
+      "id": "d122f1f6-7718-4904-bed4-0022364ce24f",
+      "title": "Generic Table",
+      "price": "238.8420383706127"
+    },
+    {
+      "id": "a714f1d1-0ddc-451c-9943-f8cd2eef0bd8",
+      "title": "Fresh Shoes",
+      "price": "16.50903389795165"
+    },
+    {
+      "id": "68d5e9cc-8bed-4039-8919-3022e2031114",
+      "title": "Frozen Ball",
+      "price": "30.78668980907039"
+    },
+    {
+      "id": "6e5aef02-c114-4085-9b69-d17beab7754b",
+      "title": "Frozen Bacon",
+      "price": "152.5276847278464"
+    }
+  ]
+}

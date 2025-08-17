@@ -1,0 +1,341 @@
+{
+  "metadata": {
+    "environment": "development",
+    "timestamp": "2025-06-17T15:25:08.131Z",
+    "duration": 6.26
+  },
+  "results": {
+    "totalProducts": 50,
+    "totalReviews": 100,
+    "averageRating": 4.11
+  },
+  "users": [
+    {
+      "id": "6a22e56a-2816-49a0-9bc0-0b4a602ed433",
+      "email": "admin.Tamara_Stark82-1uEQ@ourarabheritage.com",
+      "role": "ADMIN"
+    },
+    {
+      "id": "946596ea-b6ae-4f72-aeb2-4f1e598cc3c4",
+      "email": "seller.Henderson10-NS18@ourarabheritage.com",
+      "role": "SELLER"
+    },
+    {
+      "id": "baf9babd-509c-4c4f-befc-c3cbe6a98453",
+      "email": "buyer.WinfieldSenger8-zazO@ourarabheritage.com",
+      "role": "BUYER"
+    },
+    {
+      "id": "69367fab-2b03-405e-8a2b-8d4d751c5d16",
+      "email": "buyer.LeoHane-ErTY@ourarabheritage.com",
+      "role": "BUYER"
+    },
+    {
+      "id": "dad314f4-d05f-48c4-a018-663d3710a1d2",
+      "email": "seller.AlvertaSchumm22-53wX@ourarabheritage.com",
+      "role": "SELLER"
+    },
+    {
+      "id": "bcf483ba-67d1-42e5-9ac1-199b6ab2e85a",
+      "email": "buyer.MariettaAbbott8-QvOr@ourarabheritage.com",
+      "role": "BUYER"
+    },
+    {
+      "id": "6c7beab1-f47a-4330-ace6-29c59576cc0f",
+      "email": "buyer.Rosella_Johnsto-7Ouq@ourarabheritage.com",
+      "role": "BUYER"
+    },
+    {
+      "id": "8140e34f-a707-4c34-991b-ba2ad046cc8f",
+      "email": "seller.Minerva_Becker8-Usu1@ourarabheritage.com",
+      "role": "SELLER"
+    },
+    {
+      "id": "99df8141-9326-4826-b4cf-72a910fbdeb5",
+      "email": "buyer.KeaganBartell41-o-_U@ourarabheritage.com",
+      "role": "BUYER"
+    },
+    {
+      "id": "188897a3-b88e-4fba-b812-10c478b1cf74",
+      "email": "buyer.AdolfoSchmelerB-FKfP@ourarabheritage.com",
+      "role": "BUYER"
+    },
+    {
+      "id": "5bc4c896-b263-4f5f-ae3a-f76c8a8fd132",
+      "email": "buyer.Makenzie_Klein-y9-5@ourarabheritage.com",
+      "role": "BUYER"
+    },
+    {
+      "id": "138eada5-46e0-4c3a-9cc5-ef787c0dbe8b",
+      "email": "buyer.MarioHayes-qhps@ourarabheritage.com",
+      "role": "BUYER"
+    },
+    {
+      "id": "e6e7aa40-df08-47d6-861f-ea4b7ea1992d",
+      "email": "buyer.DarrickReinger4-FtIM@ourarabheritage.com",
+      "role": "BUYER"
+    },
+    {
+      "id": "072f1351-7947-4131-9357-d3ca53a35285",
+      "email": "buyer.WilsonLeannon31-oGhq@ourarabheritage.com",
+      "role": "BUYER"
+    },
+    {
+      "id": "e00da1fd-3a4e-44f2-8df7-f57bd2b5627b",
+      "email": "buyer.Brandon22-SNaq@ourarabheritage.com",
+      "role": "BUYER"
+    }
+  ],
+  "products": [
+    {
+      "id": "0735f2fa-89bc-4629-bb1b-9c851063c776",
+      "title": "Ergonomic Bacon",
+      "price": "224.714318410132"
+    },
+    {
+      "id": "2614b1d4-8629-4fdc-b41f-7601340d4abe",
+      "title": "Generic Pants",
+      "price": "177.2914954145662"
+    },
+    {
+      "id": "49b04100-1968-4e7a-ad1f-a05626eb01de",
+      "title": "Oriental Cheese",
+      "price": "95.57414119070488"
+    },
+    {
+      "id": "e5bccf2c-eb9a-418b-839d-5c620d876b43",
+      "title": "Licensed Mouse",
+      "price": "72.97943454526899"
+    },
+    {
+      "id": "9dad7709-3d6d-47cc-91b2-dfff29529f2d",
+      "title": "Tasty Chicken",
+      "price": "209.1962889888441"
+    },
+    {
+      "id": "5d324106-a0ee-45d7-a257-2be6b06e04c1",
+      "title": "Elegant Bike",
+      "price": "161.5858722203024"
+    },
+    {
+      "id": "1c5e8121-e069-4216-80ec-1f6e6b3d3a20",
+      "title": "Frozen Soap",
+      "price": "49.33106643541822"
+    },
+    {
+      "id": "11a2a12c-e9ce-4be7-9770-f9f318f07bb4",
+      "title": "Unbranded Keyboard",
+      "price": "96.72490550279618"
+    },
+    {
+      "id": "6adb9a9c-3cb0-4d1a-a920-abffc82810f6",
+      "title": "Licensed Pizza",
+      "price": "135.0093037482763"
+    },
+    {
+      "id": "9f07c281-baef-435d-85e2-934b2b050100",
+      "title": "Recycled Towels",
+      "price": "180.9398525365966"
+    },
+    {
+      "id": "564bf6cc-e811-4fe3-9a12-2aded9c59a69",
+      "title": "Ergonomic Sausages",
+      "price": "116.1553435343462"
+    },
+    {
+      "id": "bb627966-f1bb-4030-9f62-c05ac6fc6b84",
+      "title": "Frozen Bacon",
+      "price": "165.0189092007809"
+    },
+    {
+      "id": "034aaa12-96e2-4d81-83f7-b41329ef8933",
+      "title": "Elegant Cheese",
+      "price": "216.9214308095713"
+    },
+    {
+      "id": "3172a1b7-3ed8-485d-a302-4073156df9cc",
+      "title": "Frozen Keyboard",
+      "price": "21.50299980590888"
+    },
+    {
+      "id": "eb4b43f7-960d-4082-9da8-0747e6da7e4c",
+      "title": "Handcrafted Salad",
+      "price": "48.15636409132684"
+    },
+    {
+      "id": "8acc2b91-9f77-4650-bf67-39ed177752ad",
+      "title": "Incredible Bike",
+      "price": "117.1167911933738"
+    },
+    {
+      "id": "05428b3c-c028-4569-a595-f5f24ac61454",
+      "title": "Small Gloves",
+      "price": "152.4453193582592"
+    },
+    {
+      "id": "58cc0f89-df70-444c-9944-7dc27c611c57",
+      "title": "Generic Chips",
+      "price": "210.5808363224178"
+    },
+    {
+      "id": "731fdf73-6f93-4b47-9ae0-4de441656a58",
+      "title": "Frozen Fish",
+      "price": "70.6966945710609"
+    },
+    {
+      "id": "46a6216b-116a-482a-bc29-3f64f36814b8",
+      "title": "Practical Bike",
+      "price": "221.8683961458293"
+    },
+    {
+      "id": "c47fe1a6-49c4-4728-969d-6a8c317a12e3",
+      "title": "Sleek Keyboard",
+      "price": "171.1783412220909"
+    },
+    {
+      "id": "9a5c59be-dd32-4394-889e-fbc93fe3232f",
+      "title": "Luxurious Cheese",
+      "price": "239.0456862588236"
+    },
+    {
+      "id": "4fcef6d7-4eb9-4d7a-af01-73b06796a559",
+      "title": "Bespoke Hat",
+      "price": "84.98778581180318"
+    },
+    {
+      "id": "a137b9f1-cd1f-474f-9825-f9a02b7aa1e1",
+      "title": "Incredible Chair",
+      "price": "243.3557431604303"
+    },
+    {
+      "id": "15cea29d-a281-4e9a-bdc3-0f854348a294",
+      "title": "Unbranded Sausages",
+      "price": "209.2069582651029"
+    },
+    {
+      "id": "e89531b3-4716-40f7-9c67-3f14c3e3acfa",
+      "title": "Oriental Mouse",
+      "price": "218.8983233110203"
+    },
+    {
+      "id": "cb832dec-86f9-4670-886d-30b66fa9bffd",
+      "title": "Bespoke Fish",
+      "price": "25.53149448410787"
+    },
+    {
+      "id": "e0c7b59b-9051-4869-988d-85272c3efa60",
+      "title": "Rustic Fish",
+      "price": "200.7730643488709"
+    },
+    {
+      "id": "15743030-2138-4628-95ee-a6079affe6db",
+      "title": "Gorgeous Sausages",
+      "price": "171.7206372268218"
+    },
+    {
+      "id": "9d693c58-bdca-436e-84c7-fb953f270ff2",
+      "title": "Luxurious Mouse",
+      "price": "224.103531508938"
+    },
+    {
+      "id": "baaeaa7f-5f91-426c-a538-1c1d426a67d8",
+      "title": "Electronic Shirt",
+      "price": "29.65617211704196"
+    },
+    {
+      "id": "a317328e-d5c8-481c-8927-654146d02d7e",
+      "title": "Generic Table",
+      "price": "217.5506550403001"
+    },
+    {
+      "id": "b4f2e315-2bd8-4b8d-ada8-a3fce9799822",
+      "title": "Frozen Salad",
+      "price": "138.4164445158003"
+    },
+    {
+      "id": "9e0266fb-f587-4133-9d40-7fde5cfb7be8",
+      "title": "Rustic Table",
+      "price": "106.7447237934801"
+    },
+    {
+      "id": "e467c506-9159-4b61-a8f6-a0b049b69110",
+      "title": "Small Pizza",
+      "price": "206.3933212304175"
+    },
+    {
+      "id": "0fc35771-38b6-4b64-9202-9a93142bbfa1",
+      "title": "Ergonomic Shoes",
+      "price": "208.7077358165315"
+    },
+    {
+      "id": "81081eaf-b0fb-4338-83c3-98d8a3dee826",
+      "title": "Sleek Bike",
+      "price": "42.40963284506441"
+    },
+    {
+      "id": "40c097b0-a71a-4fea-a4b5-a777914d80a6",
+      "title": "Incredible Hat",
+      "price": "90.3729419445893"
+    },
+    {
+      "id": "1ddc0861-c280-4b85-af31-32cc50e79608",
+      "title": "Fantastic Mouse",
+      "price": "188.77996825246"
+    },
+    {
+      "id": "017ff1c0-c79b-41ef-97cb-e548633e69ff",
+      "title": "Intelligent Shirt",
+      "price": "215.1334941801452"
+    },
+    {
+      "id": "4f646596-8392-4c73-9601-4ef97ef3ad0d",
+      "title": "Handmade Car",
+      "price": "157.6075214296558"
+    },
+    {
+      "id": "feb1c628-ec26-4633-ba7f-28b1f557a468",
+      "title": "Recycled Chips",
+      "price": "59.37005255747338"
+    },
+    {
+      "id": "c35b8c58-4d02-4c7d-9b77-0a0d819d8f2c",
+      "title": "Soft Soap",
+      "price": "53.66610532626539"
+    },
+    {
+      "id": "a93f88ca-f1d2-460a-9c1e-c65cd66b5cfc",
+      "title": "Practical Shoes",
+      "price": "112.0219105835004"
+    },
+    {
+      "id": "526ab9d8-2c47-4418-855e-cff7f8ef62bb",
+      "title": "Refined Computer",
+      "price": "217.0872066911008"
+    },
+    {
+      "id": "647a639a-3d85-4168-8400-87887cf77c70",
+      "title": "Luxurious Car",
+      "price": "78.28680348511787"
+    },
+    {
+      "id": "7c7c704c-dce0-4d9b-b33c-60687a97e0ad",
+      "title": "Recycled Pants",
+      "price": "96.46989691891324"
+    },
+    {
+      "id": "678790c9-d321-415b-b8fe-9b0acefd65d6",
+      "title": "Gorgeous Shirt",
+      "price": "228.0629935729513"
+    },
+    {
+      "id": "cca9a028-3067-40e4-b002-b5cb2bb2bc4e",
+      "title": "Bespoke Chair",
+      "price": "89.13387336370155"
+    },
+    {
+      "id": "55872603-f563-4913-a7a0-df5796453ca3",
+      "title": "Rustic Bike",
+      "price": "242.9584894902319"
+    }
+  ]
+}

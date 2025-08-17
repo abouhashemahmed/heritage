@@ -1,0 +1,20 @@
+{
+  "$schema": "https://raw.githubusercontent.com/railwayapp/docs/main/static/schemas/railway.schema.json",
+  "build": {
+    "builder": "NIXPACKS",
+    "installCommand": "pnpm install --frozen-lockfile",
+    "buildCommand": "pnpm prisma generate"
+  },
+  "deploy": {
+    "startCommand": "pnpm start:production",
+    "postDeployCommand": "pnpm prisma migrate deploy"
+  },
+  "variables": {
+    "NODE_ENV": "production",
+    "DATABASE_URL": {
+      "description": "PostgreSQL connection string",
+      "required": true
+    }
+  }
+}
+

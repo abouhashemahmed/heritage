@@ -1,0 +1,21 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "outDir": "dist/esm",
+    "declaration": true,
+    "declarationDir": "dist/esm/types",
+    "declarationMap": true,
+    "sourceMap": true,
+    "inlineSources": true,             // ✅ true is better for libraries
+    "module": "NodeNext",              // ✅ Ensures override alignment
+    "moduleResolution": "NodeNext"     // ✅ Optional, but safe to reinforce
+  },
+  "exclude": [
+    "**/*.test.*",
+    "**/*.stories.*",
+    "**/*.spec.*",
+    "node_modules",
+    "dist"
+  ]
+}

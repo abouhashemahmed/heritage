@@ -1,0 +1,213 @@
+// schema.prisma
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ----------------------------
+// ENUMS
+// ----------------------------
+enum Currency {
+  USD
+  EUR
+  AED
+  INR
+  SAR
+  MXN
+}
+
+enum LanguageCode {
+  EN
+  AR
+  ES
+  FR
+  HI
+}
+
+enum MediaType {
+  PHOTO
+  VIDEO
+  MODEL_3D
+  AUDIO
+}
+
+enum ProductStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+enum Role {
+  BUYER
+  SELLER
+  ADMIN
+}
+
+enum TourDifficulty {
+  EASY
+  MODERATE
+  CHALLENGING
+}
+
+// ----------------------------
+// MODELS
+// ----------------------------
+model Heritage {
+  id            String         @id @default(uuid())
+  name          String         @unique
+  users         User[]         @relation("UserHeritages")
+  slug          String         @unique
+  description   String?
+  bannerImage   String?
+  languageCodes LanguageCode[]
+  products      Product[]
+  recipes       Recipe[]
+  tours         Tour[]
+  texts         HeritageText[]
+  createdAt     DateTime       @default(now())
+  updatedAt     DateTime       @updatedAt
+  deletedAt     DateTime?
+
+  @@index([slug])
+}
+
+model Product {
+  id          String        @id @default(uuid())
+  title       String
+  description Json?
+  price       Decimal       @default(0.00)
+  currency    Currency      @default(USD)
+  country     String?
+  mediaAssets MediaAsset[]
+  status      ProductStatus @default(DRAFT)
+  stock       Int           @default(0) // ✅ ADD THIS LINE
+  heritage    Heritage      @relation(fields: [heritageId], references: [id])
+  heritageId  String
+  seller      User          @relation(fields: [sellerId], references: [id])
+  sellerId    String  
+  reviews     Review[]
+  tags        Tag[]
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  deletedAt   DateTime?   
+
+  @@index([heritageId])   
+  @@index([heritageId, status])
+  @@index([title, country])
+  @@index([createdAt, id]) 
+  @@index([heritageId, status, createdAt]) // Composite index
+}
+
+
+model MediaAsset {
+  id        String    @id @default(uuid())
+  url       String
+  type      MediaType
+  product   Product?  @relation(fields: [productId], references: [id])
+  productId String?
+  tour      Tour?     @relation(fields: [tourId], references: [id])
+  tourId    String?
+  recipe    Recipe?   @relation(fields: [recipeId], references: [id])
+  recipeId  String?
+}
+
+model User {
+  id              String         @id @default(uuid())
+  email           String         @unique
+  password        String
+  role            Role
+  proSeller       Boolean        @default(false)
+  membership      Boolean        @default(false)
+  heritages       Heritage[]     @relation("UserHeritages")
+  products        Product[]
+  reviews         Review[]
+  sellerProfile   SellerProfile?
+  authoredRecipes Recipe[]
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+  deletedAt       DateTime?
+
+  @@index([email])
+}
+
+model SellerProfile {
+  id          String  @id @default(uuid())
+  bio         String?
+  website     String?
+  socialMedia Json?
+  user        User    @relation(fields: [userId], references: [id])
+  userId      String  @unique
+}
+
+model Review {
+  id        String   @id @default(uuid())
+  rating    Int      @default(5) @db.SmallInt
+  comment   String?
+  product   Product? @relation(fields: [productId], references: [id])
+  productId String?
+  recipe    Recipe?  @relation(fields: [recipeId], references: [id])
+  recipeId  String?
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String
+  createdAt DateTime @default(now())
+
+  @@index([productId])
+  @@index([recipeId])
+  @@index([rating])
+}
+
+model HeritageText {
+  id          String       @id @default(uuid())
+  heritage    Heritage     @relation(fields: [heritageId], references: [id])
+  heritageId  String
+  language    LanguageCode
+  title       String
+  description String
+}
+
+model Recipe {
+  id          String       @id @default(uuid())
+  title       String
+  content     Json
+  ingredients Json[] // Structured as { name: string, quantity: string, unit?: string }[]
+  heritage    Heritage     @relation(fields: [heritageId], references: [id])
+  heritageId  String
+  author      User         @relation(fields: [authorId], references: [id])
+  authorId    String
+  mediaAssets MediaAsset[]
+  reviews     Review[]
+  tags        Tag[]
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+}
+
+model Tour {
+  id          String          @id @default(uuid())
+  title       String
+  description String?
+  duration    Int? // Minutes
+  difficulty  TourDifficulty?
+  waypoints   Json? // GeoJSON format
+  heritage    Heritage        @relation(fields: [heritageId], references: [id])
+  heritageId  String
+  mediaAssets MediaAsset[]
+  createdAt   DateTime        @default(now())
+  updatedAt   DateTime        @updatedAt
+
+  @@index([difficulty])
+}
+
+model Tag {
+  id          String    @id @default(uuid())
+  name        String    @unique
+  description String?
+  icon        String? // URL to SVG/icon
+  products    Product[]
+  recipes     Recipe[]
+
+  @@index([name])
+}

@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["DOM", "ES2020"],
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+
+    // ✅ Required for JSX
+    "jsx": "react-jsx",
+
+    // ✅ Node and ESM compatibility
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+
+    // ✅ Type declarations for bundling
+    "declaration": true,
+    "declarationMap": true,
+    "outDir": "dist/esm",
+    "rootDir": "src",
+
+    // ✅ Modern ESM compatibility
+    "verbatimModuleSyntax": true,
+
+    // ✅ Strict mode + speed
+    "isolatedModules": true,
+    "skipLibCheck": true,
+    "strict": true,
+
+    // ✅ Support Node types (fixes "process" error)
+    "types": ["node"]
+  },
+  "include": ["src"]
+}
+
+

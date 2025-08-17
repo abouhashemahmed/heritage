@@ -1,0 +1,17 @@
+.DS_Store
+.vscode/
+node_modules/
+dist/
+build/
+out/
+.turbo/
+.vercel/
+.next/
+coverage/
+.env
+.env.*
+!.env.example
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
