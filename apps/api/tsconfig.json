@@ -5,7 +5,8 @@
     "outDir": "dist",
     "module": "CommonJS",
     "resolveJsonModule": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "esModuleInterop": true
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]
