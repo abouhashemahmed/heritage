@@ -1,0 +1,172 @@
+diff --git a/apps/api/src/dotenv.ts b/apps/api/src/dotenv.ts
+new file mode 100644
+index 0000000..d27c1e3
+--- /dev/null
++++ b/apps/api/src/dotenv.ts
+@@
++import path from "node:path";
++import { config } from "dotenv";
++import { z } from "zod";
++
++// Load environment variables from the repository root.  When running the
++// API from the monorepo root (e.g. via `pnpm dev`), process.cwd() will
++// point at the root and thus `.env` will be resolved correctly.  This
++// explicit load mirrors the behaviour of dotenv.config() in other files
++// but avoids scattering configuration throughout the codebase.
++config({ path: path.resolve(process.cwd(), ".env") });
++
++// Define the shape of required environment variables using zod.  Only
++// the critical variables needed at boot time are validated here.  All
++// other optional variables will simply pass through.  In production,
++// missing values will throw; in development, a warning is logged so
++// developers know which keys need to be set.
++const EnvSchema = z.object({
++  DATABASE_URL: z.string().min(1, "DATABASE_URL is required"),
++  JWT_SECRET: z.string().min(1, "JWT_SECRET is required"),
++  STRIPE_SECRET_KEY: z.string().optional(),
++  STRIPE_WEBHOOK_SECRET: z.string().optional(),
++  REDIS_URL: z.string().optional(),
++});
++
++export const env = (() => {
++  const parsed = EnvSchema.safeParse(process.env);
++  if (!parsed.success) {
++    // Aggregate all error messages into a single string
++    const msgs = parsed.error.issues
++      .map((i) => `${i.path.join(".")}: ${i.message}`)
++      .join("; ");
++    if (process.env.NODE_ENV === "production") {
++      // In production we fail fast when required vars are missing
++      throw new Error(`Invalid env: ${msgs}`);
++    } else {
++      // During development we log a warning to aid configuration
++      console.warn("[env] Missing/invalid env (dev allowed):", msgs);
++    }
++  }
++  return process.env as Record<string, string>;
++})();
++
++export default env;
+diff --git a/apps/api/src/db.ts b/apps/api/src/db.ts
+new file mode 100644
+index 0000000..7e10b32
+--- /dev/null
++++ b/apps/api/src/db.ts
+@@
++import { PrismaClient } from "@prisma/client";
++
++// Create a single instance of PrismaClient.  Each instance of
++// PrismaClient maintains its own connection pool; creating multiple
++// instances can exhaust database connections, especially in
++// serverless or development environments where hot reloading occurs.
++// See the Prisma docs: your application should generally create only
++// one instance of PrismaClient【534956454671154†L141-L149】.
++const globalForPrisma = globalThis as unknown as {
++  prisma?: PrismaClient;
++};
++
++export const prisma =
++  globalForPrisma.prisma ??
++  new PrismaClient({
++    // Additional Prisma Client options can be provided here (e.g.
++    // log levels) but are omitted by default.  Override
++    // datasources via environment variables in .env.
++  });
++
++// In development, attach the Prisma client to the global object so
++// that it is reused across module reloads by ts-node/tsx.  In
++// production the global is not mutated.
++if (process.env.NODE_ENV !== "production") {
++  globalForPrisma.prisma = prisma;
++}
++
++export default prisma;
+diff --git a/apps/api/src/utils/prisma.ts b/apps/api/src/utils/prisma.ts
+index 5e47037..a65c516 100644
+--- a/apps/api/src/utils/prisma.ts
++++ b/apps/api/src/utils/prisma.ts
+@@
+-import { PrismaClient } from '@prisma/client';
+-
+-const prisma = new PrismaClient();
+-
+-export default prisma;
++// Re-export the shared Prisma singleton from `../db`.  This prevents
++// multiple PrismaClient instances from being created and enables
++// consistent configuration across the API.  See `src/db.ts` for
++// details.
++import prismaDefault, { prisma } from "../db";
++
++export { prisma };
++export default prismaDefault;
+diff --git a/apps/api/src/routes/auth.routes.ts b/apps/api/src/routes/auth.routes.ts
+index d2c37ce..9bc2d28 100644
+--- a/apps/api/src/routes/auth.routes.ts
++++ b/apps/api/src/routes/auth.routes.ts
+@@
+-import { prisma } from "../utils/prisma.js";
++import { prisma } from "../utils/prisma";
+diff --git a/apps/api/src/index.ts b/apps/api/src/index.ts
+index 1ac4db4..eb5385d 100644
+--- a/apps/api/src/index.ts
++++ b/apps/api/src/index.ts
+@@
+-import dotenv from "dotenv";
+-dotenv.config();
++// Initialize environment variables via the shared loader.  This import
++// executes code in `src/dotenv.ts` which reads `.env` and performs
++// minimal validation.
++import "./dotenv";
+@@
+-import { PrismaClient } from "@prisma/client";
++import { prisma } from "./db";
+@@
+-// ========== Services ==========
+-const prisma = new PrismaClient({
+-  datasources: { db: { url: process.env.DATABASE_URL } }
+-});
++// ========== Services ==========
++// Use the shared Prisma client instance defined in `src/db.ts`.  The
++// singleton avoids exhausting database connections during hot reloads.
+@@
+   let redisClient: ReturnType<typeof createClient> | null = null;
+   if (NODE_ENV === "production" && process.env.REDIS_URL) {
+diff --git a/.env.example b/.env.example
+index 3cd34d7..1f2cabc 100644
+--- a/.env.example
++++ b/.env.example
+@@
+ # FRONTEND
+ NEXT_PUBLIC_API_BASE_URL=http://localhost:4000
++NEXT_PUBLIC_SITE_URL=http://localhost:3000
++NEXT_PUBLIC_ENABLE_PASSKEYS=false
+@@
+-# BACKEND
+-DATABASE_URL=postgresql://USER:PASSWORD@localhost:5432/heritage
+-JWT_SECRET=replace_me
+-STRIPE_SECRET_KEY=sk_test_xxx
+-STRIPE_WEBHOOK_SECRET=whsec_xxx
+-
+-# OPTIONAL
+-REDIS_URL=redis://localhost:6379
+-SENTRY_DSN=
++# BACKEND
++DATABASE_URL=postgresql://USER:PASSWORD@localhost:5432/heritage
++JWT_SECRET=replace_me
++REDIS_URL=redis://localhost:6379
++
++# STRIPE (test mode)
++STRIPE_SECRET_KEY=sk_test_xxx
++STRIPE_WEBHOOK_SECRET=whsec_xxx
++
++# OBSERVABILITY
++SENTRY_DSN=
+diff --git a/Makefile b/Makefile
+index d272e9e..cabc123 100644
+--- a/Makefile
++++ b/Makefile
+@@
+-APP_FRONTEND := ./apps/frontend
+-APP_BACKEND := ./apps/backend
++APP_FRONTEND := ./apps/web
++APP_BACKEND := ./apps/api
