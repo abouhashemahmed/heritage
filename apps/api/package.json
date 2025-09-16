@@ -21,6 +21,7 @@
     "morgan": "^1.10.0",
     "pino": "^8.14.0",
     "pino-http": "^10.5.0",
+    "scheduler": "^0.26.0",
     "zod": "^3.22.2"
   },
   "devDependencies": {
