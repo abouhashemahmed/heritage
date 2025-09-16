@@ -13,5 +13,5 @@ app.get('/healthz', (_req, res) => res.json({ status: 'ok' }));
 app.get('/', (_req, res) => res.json({ message: 'Our Heritage API' }));
 
 app.listen(port, () => {
-  console.log(\`API listening on \${port}\`);
+  console.log('API listening on ' + port);
 });

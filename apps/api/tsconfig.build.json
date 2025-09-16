@@ -1,7 +1,12 @@
 {
-  "extends": "./tsconfig.json",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
-    "noEmit": false
+    "rootDir": "src",
+    "outDir": "dist",
+    "module": "CommonJS",
+    "resolveJsonModule": true,
+    "isolatedModules": true
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "dist"]
 }
