@@ -4,10 +4,10 @@ new file mode 100644
 index 0000000..1111111
 --- /dev/null
 +++ b/apps/api/src/dotenv.ts
-@@ -0,0 +1,32 @@
+@@ -0,0 +1,34 @@
 +import path from "node:path";
 +import { config } from "dotenv";
-+import z from "zod";
++import { z } from "zod";
 +
 +// Load .env from repo root (works when running from monorepo root)
 +config({ path: path.resolve(process.cwd(), ".env") });
@@ -60,6 +60,28 @@ index 0000000..2222222
 +
 +export default prisma;
 +
+diff --git a/apps/api/src/utils/prisma.ts b/apps/api/src/utils/prisma.ts
+index 0123456..89abcde 100644
+--- a/apps/api/src/utils/prisma.ts
++++ b/apps/api/src/utils/prisma.ts
+@@ -1,5 +1,6 @@
+-// prisma.ts
+-import { PrismaClient } from '@prisma/client';
+-
+-const prisma = new PrismaClient();
+-
+-export default prisma;
++// Re-export the shared Prisma singleton
++import prismaDefault, { prisma } from "../db";
++export { prisma };
++export default prismaDefault;
+diff --git a/apps/api/src/routes/auth.routes.ts b/apps/api/src/routes/auth.routes.ts
+index 0123456..89abcde 100644
+--- a/apps/api/src/routes/auth.routes.ts
++++ b/apps/api/src/routes/auth.routes.ts
+@@
+-import { prisma } from "../utils/prisma.js";
++import { prisma } from "../utils/prisma";
 diff --git a/.env.example b/.env.example
 index 1111111..3333333 100644
 --- a/.env.example
@@ -81,4 +103,14 @@ index 1111111..3333333 100644
 +
 +# OBSERVABILITY
 +SENTRY_DSN=
+diff --git a/Makefile b/Makefile
+index 4444444..5555555 100644
+--- a/Makefile
++++ b/Makefile
+@@
+-APP_FRONTEND := ./apps/frontend
+-APP_BACKEND := ./apps/backend
++# Monorepo app paths
++APP_FRONTEND := ./apps/web
++APP_BACKEND := ./apps/api
 -----8<----- step1.patch END
